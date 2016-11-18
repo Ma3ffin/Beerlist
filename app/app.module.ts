@@ -8,6 +8,9 @@ import { EmployeeDetailComponent } from './component/employee-detail.component';
 import { EmployeesComponent }     from './component/employees.component';
 import { EmployeeService }         from './service/employee.service';
 
+import  { SchuldGridComponent } from './component/schuldgrid.component';
+import { SchuldService }         from './service/schuld.service';
+
 import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
@@ -20,10 +23,12 @@ import { AppRoutingModule }     from './app-routing.module';
     AppComponent,
     DashboardComponent,
     EmployeeDetailComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    SchuldGridComponent
   ],
   providers: [
-    EmployeeService
+    EmployeeService,
+    SchuldService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -1,0 +1,15 @@
+<h2>Bierliste</h2>
+<ul class="schulden">
+    <li *ngFor="let schuld of schulden"
+        [class.selected]="schuld === selectedSchuld"
+        (click)="onSelect(schuld)">
+        <span class="badge">{{schuld.id}}</span> {{schuld.getperson}} {{schuld.oweperson}} {{schuld.value}}
+    </li>
+</ul>
+
+<div *ngIf="selectedSchuld">
+    <h2>
+        {{selectedSchuld.oweperson | uppercase}} schuldet {{selectedSchuld.getperson | uppercase}} {{selectedSchuld.value}} Bier!
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
