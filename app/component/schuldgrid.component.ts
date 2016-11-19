@@ -34,7 +34,7 @@ export class SchuldGridComponent implements OnInit{
 
     gotoDetail(): void {
         //todo: Noch auf falsches Detail
-        let link = ['/detail', this.selectedSchuld.id];
+        let link = ['/schulddetail', this.selectedSchuld.id];
         this.router.navigate(link);
     }
 }

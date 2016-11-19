@@ -5,6 +5,7 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent }        from './app.component';
 import { DashboardComponent }   from './component/dashboard.component';
 import { EmployeeDetailComponent } from './component/employee-detail.component';
+import { SchuldDetailComponent } from './component/schuld-detail.component';
 import { EmployeesComponent }     from './component/employees.component';
 import { EmployeeService }         from './service/employee.service';
 
@@ -24,7 +25,8 @@ import { AppRoutingModule }     from './app-routing.module';
     DashboardComponent,
     EmployeeDetailComponent,
     EmployeesComponent,
-    SchuldGridComponent
+    SchuldGridComponent,
+    SchuldDetailComponent
   ],
   providers: [
     EmployeeService,

@@ -1,0 +1,9 @@
+<div *ngIf="schuld">
+    <h2>{{schuld.getperson}} bekommt von {{schuld.oweperson}}:</h2>
+    <div>
+        <label>Anzahl: </label>
+        <input type="number" [(ngModel)]="schuld.value" placeholder="Anzahl"/>
+    </div>
+
+    <button (click)="goBack()">Back</button>
+</div>
