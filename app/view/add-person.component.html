@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div >
+    <h2>Person hinzufügen</h2>
+    <div>
+        <label>Name: </label>
+        <input type="number" [(ngModel)]="person" placeholder="Name"/>
+    </div>
+
+    <button (click)="save()">Speichern</button>
+</div>

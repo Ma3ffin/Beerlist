@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Schuld } from './../data/schuld';
+import { Owelist } from './../data/owelist';
 import { SchuldService } from './../service/schuld.service';
 
 @Component({
@@ -13,7 +14,8 @@ import { SchuldService } from './../service/schuld.service';
 
 export class SchuldGridComponent implements OnInit{
 
-    schulden: Schuld[];
+    owelist: Owelist[];
+    @Input()
     selectedSchuld: Schuld;
 
     constructor(
@@ -22,7 +24,7 @@ export class SchuldGridComponent implements OnInit{
     ) { }
 
     getSchuldenGrid(): void {
-        this.schuldService.getSchulden().then(schulden => this.schulden = schulden);
+        this.schuldService.getOwelists().then(owelist => this.owelist = owelist);
     }
     ngOnInit(): void {
         this.getSchuldenGrid();
@@ -32,10 +34,12 @@ export class SchuldGridComponent implements OnInit{
         this.selectedSchuld = schuld;
     }
 
+    /*
     gotoDetail(): void {
         //todo: Noch auf falsches Detail
         let link = ['/schulddetail', this.selectedSchuld.id];
         this.router.navigate(link);
     }
+    */
 }
 

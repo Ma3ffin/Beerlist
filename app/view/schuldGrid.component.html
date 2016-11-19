@@ -1,16 +1,25 @@
-<h2>Bierliste</h2>
 <div *ngIf="selectedSchuld">
-    <h2>
-        {{selectedSchuld.oweperson | uppercase}} schuldet {{selectedSchuld.getperson | uppercase}} {{selectedSchuld.value}} Bier!
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
+    <h2>{{selectedSchuld.getperson}} bekommt von {{selectedSchuld.oweperson}} {{selectedSchuld.value}} Bier!</h2>
+    <div>
+        <label>Anzahl: </label>
+        <input type="number" [(ngModel)]="selectedSchuld.value" placeholder="Anzahl"/>
+    </div>
 </div>
 
-<ul class="schulden">
-    <li *ngFor="let schuld of schulden"
-        [class.selected]="schuld === selectedSchuld"
-        (click)="onSelect(schuld)">
-        <span class="badge">{{schuld.id}}</span> {{schuld.getperson}} {{schuld.oweperson}} {{schuld.value}}
-    </li>
-</ul>
+<hr>
+
+<div class="wrapper">
+    <div class="float-left" *ngFor="let getperson of owelist">
+        <ul class="schulden">
+            <li class="title">{{getperson.person}}</li>
+        </ul>
+        <ul class="schulden">
+            <li *ngFor="let schuld of getperson.schulden"
+                [class.selected]="schuld === selectedSchuld"
+                (click)="onSelect(schuld)">
+                <span class="badge">{{schuld.value}}</span> {{schuld.oweperson}}
+            </li>
+        </ul>
+    </div>
+</div>
 

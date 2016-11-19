@@ -3,14 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }        from './app.component';
-import { DashboardComponent }   from './component/dashboard.component';
-import { EmployeeDetailComponent } from './component/employee-detail.component';
-import { SchuldDetailComponent } from './component/schuld-detail.component';
-import { EmployeesComponent }     from './component/employees.component';
-import { EmployeeService }         from './service/employee.service';
 
 import  { SchuldGridComponent } from './component/schuldgrid.component';
 import { SchuldService }         from './service/schuld.service';
+import { AddPersonComponent } from './component/add-person.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -22,14 +18,10 @@ import { AppRoutingModule }     from './app-routing.module';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    EmployeeDetailComponent,
-    EmployeesComponent,
     SchuldGridComponent,
-    SchuldDetailComponent
+    AddPersonComponent
   ],
   providers: [
-    EmployeeService,
     SchuldService
   ],
   bootstrap: [ AppComponent ]
