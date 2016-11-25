@@ -34,6 +34,17 @@ export class SchuldGridComponent implements OnInit{
         this.selectedSchuld = schuld;
     }
 
+    increase(): void {
+        this.selectedSchuld.value++;
+    }
+
+    decrease(): void {
+        if(this.selectedSchuld.value > 0){
+            this.selectedSchuld.value--;
+        }
+
+    }
+
     /*
     gotoDetail(): void {
         //todo: Noch auf falsches Detail

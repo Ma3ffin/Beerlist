@@ -1,8 +1,8 @@
 <div *ngIf="selectedSchuld">
     <h2>{{selectedSchuld.getperson}} bekommt von {{selectedSchuld.oweperson}} {{selectedSchuld.value}} Bier!</h2>
     <div>
-        <label>Anzahl: </label>
-        <input type="number" [(ngModel)]="selectedSchuld.value" placeholder="Anzahl"/>
+        <button class="change" (click)="decrease()">-</button>
+        <button class="change" (click)="increase()">+</button>
     </div>
 </div>
 
