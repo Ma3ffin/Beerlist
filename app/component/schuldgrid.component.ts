@@ -17,6 +17,7 @@ export class SchuldGridComponent implements OnInit{
     owelist: Owelist[];
     @Input()
     selectedSchuld: Schuld;
+    selectedOwelist: Owelist;
 
     constructor(
         private router: Router,
@@ -30,7 +31,8 @@ export class SchuldGridComponent implements OnInit{
         this.getSchuldenGrid();
     }
 
-    onSelect(schuld: Schuld): void {
+    onSelect(schuld: Schuld, owelist: Owelist): void {
+        this.selectedOwelist = owelist;
         this.selectedSchuld = schuld;
     }
 

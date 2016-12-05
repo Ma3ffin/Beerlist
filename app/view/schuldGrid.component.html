@@ -1,5 +1,5 @@
-<div *ngIf="selectedSchuld">
-    <h2>{{selectedSchuld.getperson}} bekommt von {{selectedSchuld.oweperson}} {{selectedSchuld.value}} Bier!</h2>
+<div *ngIf="selectedSchuld && selectedOwelist">
+    <h2>{{selectedOwelist.person}} bekommt von {{selectedSchuld.oweperson}} {{selectedSchuld.value}} Bier!</h2>
     <div>
         <button class="change" (click)="decrease()">-</button>
         <button class="change" (click)="increase()">+</button>
@@ -16,7 +16,7 @@
         <ul class="schulden">
             <li *ngFor="let schuld of getperson.schulden"
                 [class.selected]="schuld === selectedSchuld"
-                (click)="onSelect(schuld)">
+                (click)="onSelect(schuld,getperson)">
                 <span class="badge">{{schuld.value}}</span> {{schuld.oweperson}}
             </li>
         </ul>
