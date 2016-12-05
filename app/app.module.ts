@@ -1,11 +1,13 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }        from './app.component';
 
 import  { SchuldGridComponent } from './component/schuldgrid.component';
 import { SchuldService }         from './service/schuld.service';
+import { DataService }          from './service/data.service';
 import { AddPersonComponent } from './component/add-person.component';
 
 import { AppRoutingModule }     from './app-routing.module';
@@ -14,7 +16,8 @@ import { AppRoutingModule }     from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -22,7 +25,8 @@ import { AppRoutingModule }     from './app-routing.module';
     AddPersonComponent
   ],
   providers: [
-    SchuldService
+    SchuldService,
+    DataService
   ],
   bootstrap: [ AppComponent ]
 })

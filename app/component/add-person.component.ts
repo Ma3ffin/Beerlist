@@ -1,6 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 
 import { Location }                 from '@angular/common';
+
+import { DataService } from './../service/data.service';
 
 @Component({
     moduleId: module.id,
@@ -14,10 +17,13 @@ export class AddPersonComponent {
     @Input() person: string;
 
     constructor(
-        private location: Location
+        private router: Router,
+        private location: Location,
+        private dataService: DataService
     ) {}
 
     save(): void {
-        this.location.back();
+        this.dataService.addPerson(this.person)
+            .then(()=>this.location.back());
     }
 }
