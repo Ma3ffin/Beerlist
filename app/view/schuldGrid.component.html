@@ -1,4 +1,16 @@
+<h3 *ngIf="errorMessage">{{errorMessage}}</h3>
+
+<div *ngIf="selectedPerson">
+    <hr>
+    <h2>{{selectedPerson.person}} ausgewählt</h2>
+    <div>
+        <button (click)="delete()">Löschen</button>
+        <button (click)="abortDelete()">Abbrechen</button>
+    </div>
+</div>
+
 <div *ngIf="selectedSchuld && selectedOwelist">
+    <hr>
     <h2>{{selectedOwelist.person}} bekommt von {{selectedSchuld.oweperson}} {{selectedSchuld.value}} Bier!</h2>
     <div>
         <button class="change" (click)="decrease()">-</button>
@@ -11,7 +23,7 @@
 <div class="wrapper">
     <div class="float-left" *ngFor="let getperson of owelist">
         <ul class="schulden">
-            <li class="title">{{getperson.person}}</li>
+            <li [class.selected]="getperson === selectedPerson" (click)="onSelectTitle(getperson)" class="title">{{getperson.person}}</li>
         </ul>
         <ul class="schulden">
             <li *ngFor="let schuld of getperson.schulden"
@@ -22,4 +34,6 @@
         </ul>
     </div>
 </div>
+
+
 

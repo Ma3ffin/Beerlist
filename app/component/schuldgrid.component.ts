@@ -20,6 +20,7 @@ export class SchuldGridComponent implements OnInit{
     @Input()
     selectedSchuld: Schuld;
     selectedOwelist: Owelist;
+    selectedPerson: Owelist;
 
     constructor(
         private router: Router,
@@ -33,8 +34,8 @@ export class SchuldGridComponent implements OnInit{
 
         this.dataService
             .getAll().then(
-            owelist => this.owelist = owelist,
-            error =>  this.errorMessage = <any>error);
+            owelist => this.owelist = owelist)
+            .catch(error => this.errorMessage = "Verbindungsfehler");
     }
 
     ngOnInit(): void {
@@ -46,9 +47,14 @@ export class SchuldGridComponent implements OnInit{
         this.selectedSchuld = schuld;
     }
 
+    onSelectTitle(owelist: Owelist): void {
+        this.selectedPerson = owelist;
+    }
+
     increase(): void {
         this.dataService.incrementSchuld(this.selectedOwelist.person, this.selectedSchuld.oweperson)
-            .then(()=>this.selectedSchuld.value++);
+            .then(()=>this.selectedSchuld.value++)
+            .catch(error => this.errorMessage = "Verbindungsfehler");
     }
 
     decrease(): void {
@@ -57,9 +63,17 @@ export class SchuldGridComponent implements OnInit{
                 if(this.selectedSchuld.value > 0){
                     this.selectedSchuld.value--;
                 }
-            });
+            }).catch(error => this.errorMessage = "Verbindungsfehler");
+    }
 
+    delete():void{
+        this.dataService.deleteSchuld(this.selectedPerson.person)
+            .then(owelist => this.owelist = owelist, this.selectedPerson = null)
+            .catch(error => this.errorMessage = "Verbindungsfehler");
+    }
 
+    abortDelete():void{
+        this.selectedPerson = null
     }
 
     /*

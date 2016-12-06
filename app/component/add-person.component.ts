@@ -15,6 +15,7 @@ import { DataService } from './../service/data.service';
 export class AddPersonComponent {
 
     @Input() person: string;
+    errorMessage: string;
 
     constructor(
         private router: Router,
@@ -24,6 +25,6 @@ export class AddPersonComponent {
 
     save(): void {
         this.dataService.addPerson(this.person)
-            .then(()=>this.location.back());
+            .then(()=>this.location.back()).catch(() => this.errorMessage = "Verbindungsfehler");
     }
 }

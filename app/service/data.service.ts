@@ -7,8 +7,8 @@ import {Schuld} from "./../data/schuld";
 
 @Injectable()
 export class DataService {
-    //private baseUrl: string = 'http://beerlistserviceforneustiftgasse.azurewebsites.net/api/';
-    private baseUrl: string = 'http://localhost:50922/api/';
+    private baseUrl: string = 'http://beerlistserviceforneustiftgasse.azurewebsites.net/api/';
+    //private baseUrl: string = 'http://localhost:50922/api/';
 
     constructor(private http : Http){
     }
@@ -59,6 +59,15 @@ export class DataService {
         let url = this.baseUrl+name+"/add";
 
         return this.http.post(url, options).toPromise().then(()=>true)
+            .catch(this.handleError);
+    }
+
+    deleteSchuld (name: string) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let url = this.baseUrl+name+"/delete";
+
+        return this.http.delete(url, options).toPromise().then(this.extractData)
             .catch(this.handleError);
     }
 
