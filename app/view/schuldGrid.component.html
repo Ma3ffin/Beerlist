@@ -29,7 +29,7 @@
             <li *ngFor="let schuld of getperson.schulden"
                 [class.selected]="schuld === selectedSchuld"
                 (click)="onSelect(schuld,getperson)">
-                <span class="badge">{{schuld.value}}</span> {{schuld.oweperson}}
+                <span [class.badge-color]="isValue(schuld.value)" class="badge">{{schuld.value}}</span> {{schuld.oweperson}}
             </li>
         </ul>
     </div>

@@ -76,6 +76,13 @@ export class SchuldGridComponent implements OnInit{
         this.selectedPerson = null
     }
 
+    isValue(value: number): boolean{
+        if(value > 0){
+            return true
+        }
+        return false
+    }
+
     /*
     gotoDetail(): void {
         //todo: routerbsp

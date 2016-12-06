@@ -49,9 +49,8 @@ ul.schulden {
 .schulden .badge {
     display: inline-block;
     font-size: small;
-    color: white;
+    color: #EEE;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
     line-height: 1em;
     position: relative;
     left: -1px;
@@ -59,6 +58,11 @@ ul.schulden {
     height: 1.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
+}
+
+.schulden .badge-color{
+    background-color: #607D8B;
+    color: white;
 }
 
 .float-left{
