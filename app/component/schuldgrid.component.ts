@@ -76,6 +76,12 @@ export class SchuldGridComponent implements OnInit{
         this.selectedPerson = null
     }
 
+    abort():void{
+        this.selectedSchuld = null
+        this.selectedOwelist = null
+    }
+
+
     isValue(value: number): boolean{
         if(value > 0){
             return true
